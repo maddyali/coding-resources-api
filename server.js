@@ -33,7 +33,9 @@ app.get("/api/:keyword", (req, res) => {
   if (matches.length) {
     res.json(matches);
   } else {
-    res.json({ msg: "No resource found." });
+    res
+      .status(404)
+      .json({ error: `No resources found with the '${keyword}' keyword.` });
   }
 });
 
