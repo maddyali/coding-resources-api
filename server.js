@@ -1,27 +1,12 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const resources = require("./resources");
 const PORT = process.env.PORT || 8000;
 
 app.use(cors());
-app.use(express.static("public"));
-
-const resources = [
-  {
-    name: "Building a Simple CRUD app with Node, Express, and MongoDB",
-    url: "https://zellwk.com/blog/crud-express-mongodb/",
-    description:
-      "A comprehensive tutorial on working with Node, Express, and MongoDB",
-    keywords: [
-      "node",
-      "mongodb",
-      "express",
-      "javascript",
-      "backend",
-      "fullstack",
-    ],
-  },
-];
+// app.use(express.static("public"));
+app.use("/public", express.static(__dirname + "/public"));
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
