@@ -12,6 +12,8 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
+app.get("/api", (req, res) => res.json(resources));
+
 app.get("/api/:keyword", (req, res) => {
   const keyword = req.params.keyword.toLowerCase();
 
