@@ -102,14 +102,6 @@ img {
   max-width: 100%;
 }
 
-code {
-  display: block;
-  color: var(--white);
-  padding: 0.8rem 1.2rem;
-  border-radius: 15px;
-  border: 2px solid var(--secondary-light);
-}
-
 table {
   height: 200px;
   margin: auto;
@@ -155,6 +147,16 @@ td {
 
 .dark-text {
   color: var(--secondary-dark);
+}
+
+/* Code */
+
+.code {
+  display: block;
+  color: var(--white);
+  padding: 0.8rem 1.2rem;
+  border-radius: 15px;
+  border: 2px solid var(--secondary-light);
 }
 
 /* Header */
@@ -213,8 +215,52 @@ nav ul {
 /* Result */
 
 .result {
-  width: min(80%, 40rem);
+  width: 90%;
   margin: auto;
+  overflow: hidden;
+}
+
+.scroll-container {
+  width: 100%;
+  height: 350px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border: 2px solid var(--secondary-light);
+  border-radius: 15px;
+  padding: 0 10px;
+}
+
+.scroll-container::-webkit-scrollbar {
+  width: 12px;
+  background-color: var(--secondary-light);
+  border-radius: 15px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  width: 12px;
+  height: 12px;
+  background-color: var(--secondary-dark);
+  border-radius: 50%;
+}
+
+.json code {
+  white-space: pre-line;
+  font-size: 14px;
+}
+
+.indent {
+  padding-left: 2rem;
+}
+
+.indent > * {
+  margin: 0;
+  text-align: left;
+}
+
+.text-truncate {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 /* Endpoints */
