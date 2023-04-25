@@ -198,14 +198,14 @@ nav ul {
 }
 
 #keyword-input:focus {
-  outline: 1px solid var(--secondary-dark);
+  outline: 2px solid var(--secondary-dark);
 }
 
 #keyword-btn {
   background-color: var(--secondary-dark);
   transition: 0.3s;
   padding: 1rem;
-  /* font-size: 20px; */
+  font-size: 20px;
 }
 
 #keyword-btn:hover {
