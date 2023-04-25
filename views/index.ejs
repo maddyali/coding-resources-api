@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding Resources API</title>
+
+    <!-- STYLES -->
+    <link rel="stylesheet" type="text/css" href="public/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/style.css" />
+    <!-- ICONS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <a href="/" id="title">coding resources api</a>
+        <nav>
+          <ul>
+            <li><a href="#about">about</a></li>
+            <li><a href="#docs">docs</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <h1>
+          The
+          <span class="dark-text"
+            >Coding <br />
+            Resources</span
+          >
+          API
+        </h1>
+        <div class="split">
+          <section id="about" class="about">
+            <h2>Description</h2>
+            <p>
+              This API serves educational resources relevant to software
+              engineering. You can search for coding resources using relevant
+              keywords.
+            </p>
+          </section>
+
+          <section class="test-api">
+            <h2>Try it out</h2>
+            <form action="">
+              <input type="text" placeholder="keyword" id="keyword-input" />
+              <button id="keyword-btn" type="button">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </form>
+            <div class="result">
+              <div class="scroll-container">
+                <ul id="result-list">
+                  <!-- Loop through resources array and render each object to the DOM -->
+                  <% for(let i = 0; i < resources.length; i++) { %>
+                  <li>
+                    <!-- JSON format for DOM rendering -->
+                    <pre class="json">
+                        <code>
+                            {
+                                <div class="indent">
+                                    <p>name: '<%= resources[i].name %>',</p>
+                                    <p class="text-truncate">url: '<a href=<%= resources[i].url %> target="_blank"><%= resources[i].url %></a>',</p>
+                                    <p>description: '<%= resources[i].description %>'</p>
+                                    <p class="text-truncate">keywords: [<%= resources[i].keywords.map(keyword => `'${keyword}'`).join(", ") %>]</p>
+                                </div>
+                            },
+                        </code>
+                    </pre>
+                  </li>
+                  <% } %>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <section id="docs" class="docs">
+        <h2>Documentation</h2>
+        <section class="obj-keys">
+          <h3>There are 3 keys that come with each resource object:</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>name</td>
+                <td>[String] Name or title of resource</td>
+              </tr>
+              <tr>
+                <td>url</td>
+                <td>[String] Link to website</td>
+              </tr>
+              <tr>
+                <td>keywords</td>
+                <td>
+                  [Array] Relevent keywords related to the resource's topic
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="endpoints">
+          <h3>Endpoints</h3>
+          <div class="split">
+            <div>
+              <h4>
+                Directly access entire array of resource objects or filter it by
+                using a keyword:
+              </h4>
+              <code class="code"
+                >https://the-coding-resources-api.up.railway.app/api</code
+              >
+              <h5>
+                *The '/api' endpoint returns an array of all resource objects.
+              </h5>
+              <code class="code"
+                >https://the-coding-resources-api.up.railway.app/api/<span
+                  class="dark-text"
+                  >&lt;keyword&gt;</span
+                >
+              </code>
+              <h5>
+                *The '/api/keyword' endpoint filters the resources array based
+                on a keyword and returns an array of matching resource objects.
+              </h5>
+            </div>
+
+            <div>
+              <h4>Example code-block of how to fetch using JavaScript:</h4>
+              <img
+                src="/public/assets/js-fetch.png"
+                alt="Example code-block of how to fetch using JavaScript."
+                id="js-fetch"
+              />
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <footer>
+        <div class="split">
+          <div class="contact">
+            <img
+              src="/public/assets/headshot.png"
+              alt="Headshot"
+              id="headshot"
+            />
+            <div class="contact-body">
+              <h4>ali the techie</h4>
+              <ul class="social-links">
+                <li>
+                  <a
+                    href="https://www.instagram.com/alithetechie"
+                    target="_blank"
+                    ><i class="fa-brands fa-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/maddyali" target="_blank"
+                    ><i class="fa-brands fa-linkedin-in"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://github.com/maddyali" target="_blank"
+                    ><i class="fa-brands fa-github"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="message">
+            <p>
+              Bugs? Features? Please report them
+              <a
+                href="https://github.com/maddyali/coding-resources-api/issues"
+                target="_blank"
+              >
+                <span class="dark-text">here</span>.</a
+              >
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="/public/js/main.js"></script>
+  </body>
+</html>
