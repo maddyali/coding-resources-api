@@ -1,6 +1,13 @@
 const input = document.getElementById("keyword-input");
 const btn = document.getElementById("keyword-btn");
 
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    hitAPI();
+  }
+});
+
 btn.addEventListener("click", hitAPI);
 
 async function hitAPI() {
