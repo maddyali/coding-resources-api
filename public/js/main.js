@@ -15,7 +15,7 @@ async function hitAPI() {
 
   try {
     const response = await fetch(
-      `https://the-coding-resources-api.up.railway.app/api/${keyword}`
+      `https://coding-resources-api.onrender.com/api/${keyword}`
     );
     const data = await response.json();
     render(data);
